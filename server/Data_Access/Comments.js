@@ -1,10 +1,9 @@
 const dataAccess = require('../Data_Access/DataAccess').sequelize;
 const Sequelize = require('sequelize');
-const { Customer } = require('./Customer');
+const Customer = require('./Customer');
 class Comments {
     constructor() {
-        this.Comments = this.initComments();
-
+        this.model = this.initComments();
     }
     initComments() {
         let comments = dataAccess.define('Comments', {
@@ -16,8 +15,16 @@ class Comments {
         }, {
                 freezeTableName: true // Model tableName will be the same as the model name
             });
-        comments.hasOne(Customer, { foreignKey: 'customer_id' });
+        comments.hasOne(Customer.model, { foreignKey: 'customer_id' });
         return comments;
+    }
+    update(detailsToUpdate) {
+        return this.model.update(
+            { text: detailsToUpdate.text, date: detailsToUpdate.date }, {
+                where: { comments_id: detailsToUpdate.id }
+            }).then(() => {
+                return this.getAll()
+            })
     }
 }
 const comments = new Comments();

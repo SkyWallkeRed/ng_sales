@@ -1,6 +1,14 @@
+<!-- <app-dialog (newCustomerData)='cetchNewCustomer($event)'></app-dialog> -->
+
+
+<button mat-button class="CreatCustomer" (click)='onClick()'>
+  new
+</button>
+<app-new-customer [customerToEdit]='customerToEdit' name='customerToEdit' (newCustomerData)='cetchNewCustomer($event)' *ngIf='newCustomer'></app-new-customer>
+
 <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-</mat-form-field> 
+</mat-form-field>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <!-- Position Column -->
@@ -28,14 +36,22 @@
     <td mat-cell *matCellDef="let element"> {{element.LastName}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="IP ADDRESS">
-    <th mat-header-cell *matHeaderCellDef> IP ADDRESS </th>
-    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  <ng-container matColumnDef="PHONE">
+    <th mat-header-cell *matHeaderCellDef> PHONE </th>
+    <td mat-cell *matCellDef="let element"> {{element.Phone}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="CREATED TIME">
-    <th mat-header-cell *matHeaderCellDef> CREATED TIME </th>
-    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  <ng-container matColumnDef="COMPANY">
+    <th mat-header-cell *matHeaderCellDef> COMPANY </th>
+    <td mat-cell *matCellDef="let element"> {{element.company_id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="ACTION">
+    <th mat-header-cell *matHeaderCellDef> ACTION </th>
+    <td mat-cell *matCellDef="let element">
+      <button (click)='submitDelete(element.customer_id)' mat-button>delete</button>
+      <button mat-button (click)='submitEdit(element)'>edit </button>
+    </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

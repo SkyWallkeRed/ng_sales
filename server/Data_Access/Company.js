@@ -4,7 +4,7 @@ const Sequelize = require('sequelize');
 class Company {
     constructor() {
         // this.seq = dataAccess;
-        this.Company = this.initCompany();
+        this.model = this.initCompany();
     }
     initCompany() {
 
@@ -18,6 +18,14 @@ class Company {
                 freezeTableName: true // Model tableName will be the same as the model name
             });
         return company;
+    }
+    update(detailsToUpdate) {
+        return this.model.update(
+            { name: detailsToUpdate.name, Adrress: detailsToUpdate.Adrress, Country: detailsToUpdate.Country }, {
+                where: { company_id: detailsToUpdate.company_id }
+            }).then(() => {
+                return this.getAll()
+            })
     }
 }
 const company = new Company();

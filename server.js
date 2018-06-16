@@ -5,9 +5,9 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 // Get our API routes
-const CompanyApi = require('./routs/CompanyApi');
-const CustomerApi = require('./routs/CustomerApi');
-const CommentApi = require('./routs/CommentsApi');
+const CompanyApi = require('./server/routs/CompanyApi');
+const CustomerApi = require('./server/routs/CustomerApi');
+const CommentApi = require('./server/routs/CommentsApi');
 const Sequelize = require('sequelize');
 
 const app = express();
@@ -47,5 +47,7 @@ const server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port, () => console.log(`API running on localhost:${port}`));
-//=======================
+server.listen(port, (ok,err) =>
+{
+  console.log(`API running on localhost:${port}`)
+});
