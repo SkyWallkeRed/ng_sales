@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-
 import { MatTableDataSource } from '@angular/material';
 import { CustomerService } from '../services/customer.service';
 import Customer from 'models/Customer';
@@ -27,7 +26,6 @@ export class CustomerComponent implements OnInit {
     this.customerService.allUpdate.subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
     });
-    // this.customerService.getAll();
 
   }
   applyFilter(filterValue: string) {
@@ -48,10 +46,8 @@ export class CustomerComponent implements OnInit {
     }
   }
   submitDelete(id) {
-    // console.log(id);
     this.customerService.delete(id);
     this.showWarn();
-
   }
   submitEditCustomer(currentCustomerId, editCustomerData) {
     this.customerService.edit(currentCustomerId, editCustomerData);

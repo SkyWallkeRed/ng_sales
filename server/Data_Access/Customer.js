@@ -2,13 +2,11 @@ const dataAccess = require('../Data_Access/DataAccess').sequelize;
 const baseModel = require('../Data_Access/baseModel');
 const Company = require('./Company');
 const Sequelize = require('sequelize');
-// const baseModel = require('./baseModel');
-
-
 
 class Customer extends baseModel {
     constructor() {
         super();
+        this.PK = "customer_id";
         this.model = this.initCustomer();
     }
     initCustomer() {
@@ -26,16 +24,7 @@ class Customer extends baseModel {
         customer.belongsTo(Company.model, { foreignKey: 'company_id' });
         return customer;
     }
-    // update(detailsToUpdate) {
-    //     return this.model.update(
-    //         { FirstName: detailsToUpdate.firstName, LastName: detailsToUpdate.lastName }, {
-    //             where: { customer_id: detailsToUpdate.customer_id }
-    //         }).then(() => {
-    //             return this.getAll()
-    //         })
-    // }
     
 }
 const customer = new Customer();
-
 module.exports = customer;
