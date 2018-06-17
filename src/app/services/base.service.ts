@@ -46,10 +46,11 @@ export class BaseService {
       this.getAll();
     });
   }
-  edit(obj) {
-    const objservble = this.http.put(`http://localhost:3000/${this.name}`, obj);
+  edit(id, newObj) {
+    const objservble = this.http.put(`http://localhost:3000/${this.name}/` + id, newObj);
     objservble.subscribe((res) => {
-
+      this.getAll();
+      this.allSubject.next(this.alldata);
     });
   }
 

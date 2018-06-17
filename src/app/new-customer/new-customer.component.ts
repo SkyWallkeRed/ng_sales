@@ -20,7 +20,6 @@ export class NewCustomerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.customerToEdit);
   }
   submitAddCustomer() {
     // console.log(this.customerToEdit);

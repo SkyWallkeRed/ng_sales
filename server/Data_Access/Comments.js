@@ -1,14 +1,16 @@
 const dataAccess = require('../Data_Access/DataAccess').sequelize;
 const Sequelize = require('sequelize');
 const Customer = require('./Customer');
-class Comments {
+const baseModel = require('../Data_Access/baseModel');
+
+class Comments extends baseModel {
     constructor() {
+        super();
         this.model = this.initComments();
     }
     initComments() {
         let comments = dataAccess.define('Comments', {
-            comments_id: { type: Sequelize.INTEGER, primaryKey: true },
-            name: Sequelize.STRING,
+            comment_id: { type: Sequelize.INTEGER, primaryKey: true },
             date: Sequelize.DATE,
             text: Sequelize.STRING,
 

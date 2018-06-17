@@ -1,0 +1,10 @@
+<p-dialog header="Edit customer" [(visible)]="display" [modal]="true" [responsive]="true" [width]="400" [minWidth]="400"
+  [minY]="70" [maximizable]="true" [baseZIndex]="10000">
+  <app-new-customer [customerToEdit]='customerToEdit' name='customerToEdit' (newCustomerData)='cetchNewCustomer($event)'></app-new-customer>
+</p-dialog>
+
+<button mat-button type="button" (click)="showDialog()" pButton icon="pi pi-info-circle" label="Show">
+  <i class="material-icons">
+    edit
+  </i>
+</button>

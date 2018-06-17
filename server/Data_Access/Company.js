@@ -1,8 +1,12 @@
 const dataAccess = require('../Data_Access/DataAccess').sequelize;
 const Sequelize = require('sequelize');
+const baseModel = require('../Data_Access/baseModel');
+
 // console.log(dataAccess);
-class Company {
+class Company extends baseModel {
     constructor() {
+        super();
+        
         // this.seq = dataAccess;
         this.model = this.initCompany();
     }
@@ -19,14 +23,7 @@ class Company {
             });
         return company;
     }
-    update(detailsToUpdate) {
-        return this.model.update(
-            { name: detailsToUpdate.name, Adrress: detailsToUpdate.Adrress, Country: detailsToUpdate.Country }, {
-                where: { company_id: detailsToUpdate.company_id }
-            }).then(() => {
-                return this.getAll()
-            })
-    }
+
 }
 const company = new Company();
 

@@ -18,7 +18,7 @@ class Customer extends baseModel {
             LastName: Sequelize.STRING,
             Email: Sequelize.STRING,
             Phone: Sequelize.STRING,
-            company_id: Sequelize.INTEGER,
+            Company_id: Sequelize.INTEGER,
         }, {
             autoIncrement:true,
                 freezeTableName: true // Model tableName will be the same as the model name

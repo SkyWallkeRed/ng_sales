@@ -1,2 +1,7 @@
-<app-nav ></app-nav>
-<app-main></app-main>
+<app-nav [navHeader]='navHeader' name='navHeader' (clickedTab)='getClickedTab($event)'></app-nav>
+<!-- (click)='customerClick()'
+(click)='companyClick()'
+(click)='commentsClick()' -->
+<app-customer [hidden]='customer' ></app-customer>
+<app-company [hidden]='company' ></app-company>
+<app-comments [hidden]='comments' ></app-comments>

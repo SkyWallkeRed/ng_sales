@@ -24,8 +24,19 @@ import { NewCustomerComponent } from './new-customer/new-customer.component';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
-import { DialogComponent } from './dialog/dialog.component';
-import { DialogEndComponent } from './dialog-end/dialog-end.component';
+
+import { AccordionModule } from 'primeng/accordion';     // accordion and accordion tab
+import { MenuItem } from 'primeng/api';                 // api
+import { GrowlModule } from 'primeng/growl';
+import {SidebarModule} from 'primeng/sidebar';
+import { SelectItem } from 'primeng/components/common/api';
+import { Message } from 'primeng/components/common/api';
+import { MessageService } from 'primeng/components/common/messageservice';
+import { DialogModule } from 'primeng/dialog';
+import { PopComponent } from './pop/pop.component';
+import { PopEditComponent } from './pop-edit/pop-edit.component';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,8 +46,8 @@ import { DialogEndComponent } from './dialog-end/dialog-end.component';
     CustomerComponent,
     CommentsComponent,
     NewCustomerComponent,
-    DialogComponent,
-    DialogEndComponent,
+    PopComponent,
+    PopEditComponent,
 
 
   ],
@@ -53,12 +64,18 @@ import { DialogEndComponent } from './dialog-end/dialog-end.component';
     MatDialogModule,
     MatIconModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    AccordionModule,
+    GrowlModule,
+    DialogModule,
+    ProgressSpinnerModule,
+    SidebarModule
   ],
   entryComponents: [
-    DialogComponent, DialogEndComponent
+
   ],
-  providers: [CustomerService, CompanyService, CommentsService, { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } }],
+  providers: [MessageService, CustomerService, CompanyService, CommentsService,
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

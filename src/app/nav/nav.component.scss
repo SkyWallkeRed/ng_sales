@@ -1,13 +1,13 @@
-.nav{
-    background-color: antiquewhite;
-    height: 100px;
+.header{
+    color:WHITE;
+    padding-top: 15px;
+    background-color: steelblue;
+    height: 50px;
+    border-radius: 50px;
 }
-.CreatCustomer{
-    margin-left: 50%;   
-    display: inline-block;
+.tabNav{
+    margin-top: 100px;
 }
-.ExportToCSV{
-    margin-left: 80%;
-    display:inline-block;
-    
+.headerTitle{
+    font-size: 1.5em;
 }

@@ -1,19 +1,15 @@
 const express = require('express')
 const router = express.Router()
 
-const Company = require('../Data_Access/Company').Company;
-
+const Company = require('../Data_Access/Company');
 
 router.get('/all', (req, res) => {
     params = req.params
-    Company.findAll().then((data) => {
-        // console.log(data);
-    res.send(JSON.stringify(data))
-        
-    })
-    // res.send(JSON.stringify())
-})
+    Company.getAll().then((data) => {
+        res.send(JSON.stringify(data))
 
+    }, err => { console.error(err) })
+})
 // router.post('/addCompany/:name', (req, res) => {
 
 //     params = req.params;
