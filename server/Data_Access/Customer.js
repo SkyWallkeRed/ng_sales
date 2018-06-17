@@ -24,6 +24,7 @@ class Customer extends baseModel {
         customer.belongsTo(Company.model, { foreignKey: 'company_id' });
         return customer;
     }
+    
 }
 const customer = new Customer();
 module.exports = customer;

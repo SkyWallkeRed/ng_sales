@@ -4,6 +4,7 @@ const baseModel = require('../Data_Access/baseModel');
 class Company extends baseModel {
     constructor() {
         super();
+        this.PK = "company_id";
         this.model = this.initCompany();
     }
     initCompany() {
