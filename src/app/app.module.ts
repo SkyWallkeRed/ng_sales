@@ -28,7 +28,7 @@ import { FormsModule } from '@angular/forms';
 import { AccordionModule } from 'primeng/accordion';     // accordion and accordion tab
 import { MenuItem } from 'primeng/api';                 // api
 import { GrowlModule } from 'primeng/growl';
-import {SidebarModule} from 'primeng/sidebar';
+import { SidebarModule } from 'primeng/sidebar';
 import { SelectItem } from 'primeng/components/common/api';
 import { Message } from 'primeng/components/common/api';
 import { MessageService } from 'primeng/components/common/messageservice';
@@ -36,7 +36,13 @@ import { DialogModule } from 'primeng/dialog';
 import { PopComponent } from './pop/pop.component';
 import { PopEditComponent } from './pop-edit/pop-edit.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-
+import { ChartComponent } from './chart/chart.component';
+import { ChartModule } from 'primeng/chart';
+import { Chart2Component } from './chart2/chart2.component';
+import { ExportToCvsComponent } from './export-to-cvs/export-to-cvs.component';
+// import downloadCsv from 'download-csv';
+// import { creatCsvFile, downloadFile, detectionClientType } from '../../node_modules/download-csv';
+// C:\Users\david\Desktop\ELE\Projects\AnguSales\node_modules\download-csv
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +54,9 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     NewCustomerComponent,
     PopComponent,
     PopEditComponent,
+    ChartComponent,
+    Chart2Component,
+    ExportToCvsComponent,
 
 
   ],
@@ -69,7 +78,9 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     GrowlModule,
     DialogModule,
     ProgressSpinnerModule,
-    SidebarModule
+    SidebarModule,
+    ChartModule,
+    // creatCsvFile, downloadFile, detectionClientType,
   ],
   entryComponents: [
 

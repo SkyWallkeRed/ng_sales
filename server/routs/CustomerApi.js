@@ -37,12 +37,12 @@ router.put('/:id', (req, res) => {
     obj = req.body
     id = req.params.id
 
-    Customer.edit(id, obj).then((res) => {
-
+    Customer.edit(id, obj).then((result) => {
+        res.send(result);
     });
 
 
-}), err => { console.error(err) };
+});
 
 
 

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/';
   providedIn: 'root'
 })
 export class BaseService {
-  private alldata: Array<Object>;
+  public alldata: Array<Object>;
   public route = 'all';
   public name: string;
   public allUpdate: Observable<Array<Object>>;
